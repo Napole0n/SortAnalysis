@@ -17,7 +17,7 @@ public class SortAnalyser {
 
     private List<Sorter> sorters = new ArrayList<>();
     int[] data;
-   
+
     public SortAnalyser(List<Sorter> sorterList) {
         this.sorters = sorterList;
     }
@@ -29,8 +29,6 @@ public class SortAnalyser {
     public void setSorters(List<Sorter> sorters) {
         this.sorters = sorters;
     }
-    
-    
 
     public SortAnalyser() {
     }
@@ -52,18 +50,14 @@ public class SortAnalyser {
     public List<String> analize(int vetorSize, int randomRange) {
 
         List<String> reports = new ArrayList<>();
-        
 
-        sorters.stream().map((s) -> {
+        for (Sorter s : sorters) {
             fillData(vetorSize, randomRange);
             s.sort(data);
-            return s;
-        }).forEachOrdered((s) -> {
             reports.add(s.toString());
-        });
+        }
+
         return reports;
     }
-    
-    
 
 }
