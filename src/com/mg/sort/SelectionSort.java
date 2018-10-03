@@ -14,6 +14,7 @@ public class SelectionSort implements Sorter {
     private int comparationCount;
     private int loopCount;
     private long executionTime;
+    private int changesCount;
 
     @Override
     public int getLoopsCount() {
@@ -66,6 +67,11 @@ public class SelectionSort implements Sorter {
     @Override
     public String toString() {
         return "SelectionSort{" + "loopCount=" + loopCount + ", comparationCount=" + comparationCount + ", executionTime=" + executionTime + '}';
+    }
+
+    @Override
+    public long getChangesCount() {
+        return this.changesCount;
     }
 
 }

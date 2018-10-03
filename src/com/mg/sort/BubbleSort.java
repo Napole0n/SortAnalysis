@@ -14,6 +14,7 @@ public class BubbleSort implements Sorter {
     private int loopCount = 0;
     private int comparationCount = 0;
     private long executionTime = 0;
+    private int changesCount = 0;
 
     @Override
     public int[] sort(int[] vetor) {
@@ -26,6 +27,7 @@ public class BubbleSort implements Sorter {
                 comparationCount++;
                 if (vetor[j - 1] > vetor[j]) {
                     int aux = vetor[j];
+                    changesCount++;
                     vetor[j] = vetor[j - 1];
                     vetor[j - 1] = aux;
                 }
@@ -55,5 +57,9 @@ public class BubbleSort implements Sorter {
     public String toString() {
         return "BubbleSort{" + "loopCount=" + loopCount + ", comparationCount=" + comparationCount + ", executionTime=" + executionTime + '}';
     }
+
+    @Override
+    public long getChangesCount() {
+return this.changesCount;    }
 
 }

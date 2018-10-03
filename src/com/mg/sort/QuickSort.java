@@ -13,6 +13,7 @@ public class QuickSort implements Sorter {
 
     int loops = 0, trocas = 0;
     long time = 0;
+    private int changesCount;
 
     @Override
     public int getLoopsCount() {
@@ -65,7 +66,12 @@ public class QuickSort implements Sorter {
 
     @Override
     public int[] sort(int[] vec) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.sort(vec, 0, vec.length - 1);
+    }
+
+    @Override
+    public long getChangesCount() {
+        return this.changesCount;
     }
 
 }

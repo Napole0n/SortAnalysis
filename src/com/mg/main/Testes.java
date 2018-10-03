@@ -7,7 +7,9 @@ package com.mg.main;
 
 import com.mg.chart.ChartMaker;
 import com.mg.sort.BubbleSort;
-import com.mg.sort.DirectInsertionSort;
+import com.mg.sort.InsertionSort;
+import com.mg.sort.MergeSort;
+import com.mg.sort.QuickSort;
 import com.mg.sort.SelectionSort;
 import com.mg.sort.SortAnalyser;
 
@@ -26,10 +28,14 @@ public class Testes {
         SortAnalyser an = new SortAnalyser();
         BubbleSort sort = new BubbleSort();
         SelectionSort ss = new SelectionSort();
-        DirectInsertionSort ds = new DirectInsertionSort();
+        InsertionSort ds = new InsertionSort();
+        QuickSort qsort = new QuickSort();
+        MergeSort mgSort = new MergeSort();
         an.addSorter(sort);
         an.addSorter(ss);
         an.addSorter(ds);
+        an.addSorter(qsort);
+       // an.addSorter(mgSort);
         an.analize(10000, 10000);
 
         ExampleChart<CategoryChart> exampleChart = new ChartMaker(an);

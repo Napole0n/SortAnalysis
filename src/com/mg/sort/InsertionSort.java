@@ -9,11 +9,12 @@ package com.mg.sort;
  *
  * @author alunos
  */
-public class DirectInsertionSort implements Sorter {
+public class InsertionSort implements Sorter {
 
     private int comparationCount = 0;
     private int loopCount = 0;
     private long executionTime = 0;
+    private int changesCount = 0;
 
     @Override
     public int getLoopsCount() {
@@ -42,20 +43,26 @@ public class DirectInsertionSort implements Sorter {
 
             while ((j > 0) && (vetor[j - 1] > aux)) {
                 vetor[j] = vetor[j - 1];
+                changesCount++;
                 comparationCount++;
                 loopCount++;
                 j -= 1;
-                
+
             }
             vetor[j] = aux;
         }
         this.executionTime = System.currentTimeMillis() - init;
         return vetor;
     }
-    
+
     @Override
     public String toString() {
         return "DirectInsertionSort{" + "loopCount=" + loopCount + ", comparationCount=" + comparationCount + ", executionTime=" + executionTime + '}';
+    }
+
+    @Override
+    public long getChangesCount() {
+        return this.changesCount;
     }
 
 }

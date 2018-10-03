@@ -39,7 +39,7 @@ public class ChartMaker implements ExampleChart<CategoryChart> {
     @Override
     public CategoryChart getChart() {
 
-        CategoryChart chart = new CategoryChartBuilder().width(800).height(600).title("Score Histogram").xAxisTitle("Score").yAxisTitle("Number").build();
+        CategoryChart chart = new CategoryChartBuilder().width(800).height(600).title("Desempenho de Algoritmos").xAxisTitle("Score").yAxisTitle("Number").build();
 
         chart.getStyler().setLegendPosition(LegendPosition.OutsideE);
         chart.getStyler().setHasAnnotations(true);
@@ -60,6 +60,7 @@ public class ChartMaker implements ExampleChart<CategoryChart> {
 
             listStr.add("LoopCount");
             listStr.add("ComparationCount");
+            listStr.add("ChangesCount");
             listStr.add("ExecutionTime (ms)");
 
             if ((s.getLoopsCount() / 1000) < 0) {
@@ -67,14 +68,18 @@ public class ChartMaker implements ExampleChart<CategoryChart> {
             } else {
                 listInt.add(s.getLoopsCount() / 1000);
             }
-            
+
             if ((s.getComparationsCount() / 1000) < 0) {
                 listInt.add((s.getComparationsCount() / 1000) * (-1));
             } else {
                 listInt.add(s.getComparationsCount() / 1000);
             }
-            
-       
+
+            if ((s.getChangesCount()/ 1000) < 0) {
+                listInt.add(((int)s.getChangesCount()/ 1000) * (-1));
+            } else {
+                listInt.add((int)s.getChangesCount() / 1000);
+            }
             listInt.add((int) s.getExecutionTime());
 
             System.out.println(Arrays.toString(listInt.toArray()));
@@ -82,7 +87,7 @@ public class ChartMaker implements ExampleChart<CategoryChart> {
 
             chart.addSeries(s.getClass().getCanonicalName(), listStr, listInt);
         }
-        
+
         chart.getStyler().setPlotGridHorizontalLinesVisible(true);
 
         return chart;

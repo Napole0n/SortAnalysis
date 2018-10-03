@@ -20,5 +20,7 @@ public interface Sorter {
     public int getLoopsCount();
 
     public long getExecutionTime();
+    
+    public long getChangesCount();
 
 }
